@@ -1,23 +1,36 @@
+// import { HTTP } from '../../utils/http'
+// let http = new HTTP()
+import { Modelclass } from '../../models/class.js'
+let model = new Modelclass()
+
 //pages/index.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    classic: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://bl.7yue.pro/v1/classic/favor?appkey=IGuPL1tLDSTCmz2s',
-      method: 'get',
-      success: function (res) {
-        console.log(res)
-      }
-    })
+
+
+    model.getLike((data) => {
+      this.setData({
+        classic: data
+      })
+    });
+
+    // http.request({
+    //   url:'/classic/favor',
+    //   success: (res) => {
+    //     console.log(res);
+    //   }
+    // })
+    // console.log(http)
   },
 
   /**

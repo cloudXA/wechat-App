@@ -7,7 +7,7 @@ Component({
     count: {
       type: Number
     },
-    like: {
+      like: {
       type: Boolean,
       
     }
